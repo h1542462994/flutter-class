@@ -25,35 +25,45 @@ class _ClassTableElementState extends State<ClassTableElement> {
     timeTableModel = Provider.of<TimeTableModel>(context);
     size = MediaQuery.of(context).size;
     return Expanded(
-      child: Column(
-        children: [
-          _buildHeader(),
-          _buildBody()
-        ],
+      child: PageView.custom( // PageView to show the all week of classTable
+          childrenDelegate: SliverChildBuilderDelegate( // child builder delegate
+            (context, index) {
+              return Column(
+                children: [
+                  _buildHeader(index),
+                  _buildBody(index)
+                ],
+              );
+            },
+            childCount: timeTable.lasting
+          ),
+        onPageChanged: _onPageViewPageChanged,
       )
     );
   }
 
-  Widget _buildHeader(){
+  // 构建标题栏
+  Widget _buildHeader(int index){
     return CustomPaint(
-      painter: ClassTableHeaderPainter(dayCount: timeTableModel.daysCount, dateStart: DateTime.now()),
+      painter: ClassTableHeaderPainter(index, timeTableModel), // header painter
       size: Size(size.width, Const.cornerHeight)
     );
   }
 
-  Widget _buildBody() {
+  // 构建表格栏
+  Widget _buildBody(int index){
     return Expanded(
       child: SingleChildScrollView( // 可以滚动，以适应列表过长的情况
         scrollDirection: Axis.vertical,
         child: Stack(
           children: [
             CustomPaint(
-              painter: ClassTableBodyBackgroundPainter(timeTableModel),
-              size: Size(size.width, _measureHeight())
+                painter: ClassTableBodyBackgroundPainter(timeTableModel), // table painter
+                size: Size(size.width, _measureHeight())
             )
           ],
         ),
-      ),
+      )
     );
   }
 
@@ -61,4 +71,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
     return Const.cellHeight * timeTable.CountMax + 2 * Const.splitHeight;
   }
 
+  void _onPageViewPageChanged(int value) {
+    timeTableModel.index = value;
+  }
 }

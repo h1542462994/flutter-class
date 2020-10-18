@@ -21,5 +21,15 @@ extension DateTimeExtension on DateTime {
     return DateTime.utc(1970, 1, 1, hour, minute, second, millisecond, microsecond);
   }
 
+  /// fit the date to the week's start date
+  DateTime toStartWeekOfDay(int weekday) {
+    if(this.weekday > weekday) {
+      return this.subtract(Duration(days: (this.weekday - weekday)));
+    } else if(this.weekday < weekday) {
+      return this.subtract(Duration(days: this.weekday - weekday + 7));
+    } else {
+      return this;
+    }
+  }
 
 }
