@@ -16,6 +16,7 @@ class ExampleGenerator {
               TimeCell(TimeType.Am, DateTimeExtension.fromTime(8, 55), DateTimeExtension.fromTime(9, 40)),
               TimeCell(TimeType.Am, DateTimeExtension.fromTime(9, 55), DateTimeExtension.fromTime(10, 40)),
               TimeCell(TimeType.Am, DateTimeExtension.fromTime(10, 50), DateTimeExtension.fromTime(11, 35)),
+              TimeCell(TimeType.Am, DateTimeExtension.fromTime(11, 45), DateTimeExtension.fromTime(12, 30)),
               TimeCell(TimeType.Pm, DateTimeExtension.fromTime(13, 30), DateTimeExtension.fromTime(14, 15)),
               TimeCell(TimeType.Pm, DateTimeExtension.fromTime(14, 25), DateTimeExtension.fromTime(15, 10)),
               TimeCell(TimeType.Pm, DateTimeExtension.fromTime(15, 25), DateTimeExtension.fromTime(16, 10)),

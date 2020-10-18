@@ -15,7 +15,7 @@ class ClassTableElement extends StatefulWidget {
 
 class _ClassTableElementState extends State<ClassTableElement> {
 
-  int dayCount = 7;
+  //int dayCount = 7;
   TimeTableModel timeTableModel;
   TimeTable get timeTable => timeTableModel.timeTable;
   Size size;
@@ -36,7 +36,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
 
   Widget _buildHeader(){
     return CustomPaint(
-      painter: ClassTableHeaderPainter(dayCount: 7, dateStart: DateTime.now()),
+      painter: ClassTableHeaderPainter(dayCount: timeTableModel.daysCount, dateStart: DateTime.now()),
       size: Size(size.width, Const.cornerHeight)
     );
   }
@@ -48,7 +48,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
         child: Stack(
           children: [
             CustomPaint(
-              painter: ClassTableBodyBackgroundPainter(timeTable),
+              painter: ClassTableBodyBackgroundPainter(timeTableModel),
               size: Size(size.width, _measureHeight())
             )
           ],
