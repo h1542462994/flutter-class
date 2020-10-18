@@ -6,7 +6,7 @@ class ExampleGenerator {
   TimeTable generateTimeTable() {
     return TimeTable(
         "test",
-        DateTime.parse("2020-10-16"),
+        DateTime.parse("2020-09-28"),
         16,
         "上学期",
         [

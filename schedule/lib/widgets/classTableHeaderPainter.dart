@@ -27,7 +27,11 @@ class ClassTableHeaderPainter extends CustomPainter {
     canvas.drawLine(Offset(0, size.height), Offset(size.width, size.height), MyPaints.grayLinePaint);
     double cellWidth = (size.width - Const.cornerWidth) / daysCount;
     for(int i = 0; i < daysCount; ++i){
-      ui.Paragraph paragraph = MyPaints.buildParagraph("周${getWeekOfDayText(i)}", cellWidth); // 构造一个Paragraph
+      var date = dateStart.add(Duration(days: i));
+      bool isToday = DateTime.now().date == date.date;
+      bool isCurrentWeekday = DateTime.now().weekday == date.weekday;
+
+      ui.Paragraph paragraph = MyPaints.buildParagraph("周${getWeekOfDayText(i)}", cellWidth, blue: isToday, bold: isCurrentWeekday); // 构造一个Paragraph
       double offsetHeight = 8;
       double space = 2;
       double height = paragraph.height; // 周x的高度
@@ -35,15 +39,13 @@ class ClassTableHeaderPainter extends CustomPainter {
           paragraph,
           Offset(Const.cornerWidth + cellWidth * i, offsetHeight)
       );
-      var paragraph2 = MyPaints.buildParagraph(dateStart.add(Duration(days: i)).shortMonthString, cellWidth, fontSize: 8);
+      var paragraph2 = MyPaints.buildParagraph(dateStart.add(Duration(days: i)).shortMonthString, cellWidth, fontSize: 8, blue: isToday, bold: isCurrentWeekday);
       canvas.drawParagraph(
           paragraph2,
           Offset(Const.cornerWidth + cellWidth * i, height + offsetHeight + space));
     }
 
   }
-  
-
 
   String getWeekOfDayText(int index){
     List<String> list = ["一","二","三","四","五","六","日"];

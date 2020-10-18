@@ -10,16 +10,16 @@ class MyPaints {
   ..style = PaintingStyle.fill // 央视
   ..strokeWidth = 1.0; // 画笔的宽度
 
-  static ui.Paragraph buildParagraph(String text, double width, {double fontSize = 10}){
+  static ui.Paragraph buildParagraph(String text, double width, {double fontSize = 10, bool bold = false, bool blue = false}){
     ui.ParagraphBuilder paragraphBuilder = ui.ParagraphBuilder(
         ui.ParagraphStyle(
           textAlign: TextAlign.center,
-          fontWeight: FontWeight.w500,
+          fontWeight: bold ? FontWeight.w700 : FontWeight.w500,
           fontStyle: FontStyle.normal,
           fontSize: fontSize,
         )
     );
-    paragraphBuilder.pushStyle(ui.TextStyle(color: Colors.black54));
+    paragraphBuilder.pushStyle(ui.TextStyle(color: blue ? Colors.blue : Colors.black54));
     paragraphBuilder.addText(text);
     ui.ParagraphConstraints paragraphConstraints = ui.ParagraphConstraints(width: width);
     return paragraphBuilder.build()..layout(paragraphConstraints);
