@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 
 /// 国际化资源类，当前适配了中文
 class GmLocalizations{

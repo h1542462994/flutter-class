@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:schedule/common/global.dart';
 import 'package:schedule/common/index.dart';
-import 'package:schedule/data/index.dart';
+import 'package:schedule/models/index.dart';
 import 'package:schedule/notifier/index.dart';
-import 'package:schedule/widgets/classTableBodyBackgroundPainter.dart';
-import 'package:schedule/widgets/classTableHeaderPainter.dart';
+import 'package:schedule/widgets/index.dart';
 
 // 用于显示课表的空间，状态依赖于timeTableModel
 class ClassTableElement extends StatefulWidget {
@@ -38,6 +36,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
             childCount: timeTable.lasting
           ),
         onPageChanged: _onPageViewPageChanged,
+        controller: PageController(initialPage: timeTableModel.index), // initialize the controller to make sure the state truly.
       )
     );
   }
@@ -68,7 +67,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
   }
 
   double _measureHeight(){ // measure the height of the body, it must matches the ::classTableBodyBackgroundPainter
-    return Const.cellHeight * timeTable.CountMax + 2 * Const.splitHeight;
+    return Const.cellHeight * timeTable.countMax + 2 * Const.splitHeight;
   }
 
   void _onPageViewPageChanged(int value) {

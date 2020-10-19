@@ -1,0 +1,1 @@
+export 'gmLocalizations.dart';

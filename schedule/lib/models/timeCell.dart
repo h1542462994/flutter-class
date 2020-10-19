@@ -1,8 +1,14 @@
+import 'package:schedule/common/dateTimeExtension.dart';
+import 'package:schedule/models/index.dart';
+
 class TimeCell {
-  TimeCell(this.id, this.timeCellId, this.timeType, this.beginTime, this.endTime);
-  final int id; // id
-  final int timeCellId; // references to timeCell
-  final int timeType; // timeType, 0 means a.m, 1 means p.m, 2 mean evening
-  final DateTime beginTime; // begin time
-  final DateTime endTime; // end time
+  TimeType timeType; // timeType, 0 means a.m, 1 means p.m, 2 mean evening
+  DateTime beginTime; // begin time
+  DateTime endTime;
+
+  TimeCell(this.timeType, this.beginTime, this.endTime); // end time
+  TimeCell.s(this.timeType, String begin, String end){
+    beginTime = DateTimeExtension.fromHourMinuteString(begin);
+    endTime = DateTimeExtension.fromHourMinuteString(end);
+  }
 }

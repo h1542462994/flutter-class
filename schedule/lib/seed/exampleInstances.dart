@@ -1,8 +1,9 @@
 import 'package:schedule/common/dateTimeExtension.dart';
-import 'package:schedule/data/index.dart';
+import 'package:schedule/models/index.dart';
 
 /// 测试用例生成器，用于前期开发
 class ExampleGenerator {
+  //课表生成器1，用于测试学校的标准时刻表
   TimeTable generateTimeTable() {
     return TimeTable(
         "test",
@@ -12,21 +13,23 @@ class ExampleGenerator {
         [
           TimeRow(1,7,
             [
-              TimeCell(TimeType.Am, DateTimeExtension.fromTime(8, 0), DateTimeExtension.fromTime(8, 45)),
-              TimeCell(TimeType.Am, DateTimeExtension.fromTime(8, 55), DateTimeExtension.fromTime(9, 40)),
-              TimeCell(TimeType.Am, DateTimeExtension.fromTime(9, 55), DateTimeExtension.fromTime(10, 40)),
-              TimeCell(TimeType.Am, DateTimeExtension.fromTime(10, 50), DateTimeExtension.fromTime(11, 35)),
-              TimeCell(TimeType.Am, DateTimeExtension.fromTime(11, 45), DateTimeExtension.fromTime(12, 30)),
-              TimeCell(TimeType.Pm, DateTimeExtension.fromTime(13, 30), DateTimeExtension.fromTime(14, 15)),
-              TimeCell(TimeType.Pm, DateTimeExtension.fromTime(14, 25), DateTimeExtension.fromTime(15, 10)),
-              TimeCell(TimeType.Pm, DateTimeExtension.fromTime(15, 25), DateTimeExtension.fromTime(16, 10)),
-              TimeCell(TimeType.Pm, DateTimeExtension.fromTime(16, 20), DateTimeExtension.fromTime(17, 05)),
-              TimeCell(TimeType.Evening, DateTimeExtension.fromTime(18, 30), DateTimeExtension.fromTime(19, 15)),
-              TimeCell(TimeType.Evening, DateTimeExtension.fromTime(19, 25), DateTimeExtension.fromTime(20, 10)),
-              TimeCell(TimeType.Evening, DateTimeExtension.fromTime(20, 20), DateTimeExtension.fromTime(21, 05))
+              TimeCell.s(TimeType.Am, "8:00", "8:45"),
+              TimeCell.s(TimeType.Am, "8:55", "9:40"),
+              TimeCell.s(TimeType.Am, "9:55", "10:40"),
+              TimeCell.s(TimeType.Am, "10:50", "11:35"),
+              TimeCell.s(TimeType.Am, "11:45", "12:30"),
+              TimeCell.s(TimeType.Pm, "13:30", "14:15"),
+              TimeCell.s(TimeType.Pm, "14:25", "15:10"),
+              TimeCell.s(TimeType.Pm, "15:25", "16:10"),
+              TimeCell.s(TimeType.Pm, "16:20", "17:05"),
+              TimeCell.s(TimeType.Evening, "18:30", "19:15"),
+              TimeCell.s(TimeType.Evening, "19:25", "20:10"),
+              TimeCell.s(TimeType.Evening, "20:20", "21:05")
             ]
           )
         ]
     );
   }
+
+  //课表
 }

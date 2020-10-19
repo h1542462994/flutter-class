@@ -1,7 +1,7 @@
 // 存储全局信息
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:schedule/data/timeTable.dart';
+import 'package:schedule/models/index.dart';
 import 'package:schedule/seed/exampleInstances.dart';
 
 class Global {

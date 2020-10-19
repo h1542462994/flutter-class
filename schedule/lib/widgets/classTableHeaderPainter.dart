@@ -2,7 +2,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:schedule/common/index.dart';
-import 'package:schedule/data/index.dart';
+import 'package:schedule/models/index.dart';
 import 'package:schedule/notifier/index.dart';
 import 'package:schedule/widgets/index.dart';
 
@@ -24,12 +24,12 @@ class ClassTableHeaderPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawLine(Offset(0, size.height), Offset(size.width, size.height), MyPaints.grayLinePaint);
+    canvas.drawLine(Offset(0, size.height), Offset(size.width, size.height), MyPaints.graySquarePaint);
     double cellWidth = (size.width - Const.cornerWidth) / daysCount;
     for(int i = 0; i < daysCount; ++i){
       var date = dateStart.add(Duration(days: i));
-      bool isToday = DateTime.now().date == date.date;
-      bool isCurrentWeekday = DateTime.now().weekday == date.weekday;
+      bool isToday = timeTableModel.currentDate.date == date.date;
+      bool isCurrentWeekday = timeTableModel.currentDate.weekday == date.weekday;
 
       ui.Paragraph paragraph = MyPaints.buildParagraph("周${getWeekOfDayText(i)}", cellWidth, blue: isToday, bold: isCurrentWeekday); // 构造一个Paragraph
       double offsetHeight = 8;
@@ -39,7 +39,7 @@ class ClassTableHeaderPainter extends CustomPainter {
           paragraph,
           Offset(Const.cornerWidth + cellWidth * i, offsetHeight)
       );
-      var paragraph2 = MyPaints.buildParagraph(dateStart.add(Duration(days: i)).shortMonthString, cellWidth, fontSize: 8, blue: isToday, bold: isCurrentWeekday);
+      var paragraph2 = MyPaints.buildParagraph(dateStart.add(Duration(days: i)).shortMonthDayString, cellWidth, fontSize: 8, blue: isToday, bold: isCurrentWeekday);
       canvas.drawParagraph(
           paragraph2,
           Offset(Const.cornerWidth + cellWidth * i, height + offsetHeight + space));

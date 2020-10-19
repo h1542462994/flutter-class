@@ -1,0 +1,9 @@
+{
+    "userId": "$user.id",
+    "timeTables": [
+        "$timeTable"
+    ],
+    "terms": [
+        "$term"
+    ]
+}
