@@ -35,7 +35,7 @@ extension DateTimeExtension on DateTime {
 
   static DateTime fromHourMinuteString(String str){
     var parts = str.split(":").map((e) => int.parse(e));
-    print(parts.elementAt(0));
+    // print(parts.elementAt(0));
     return local(1970, 1, 1, parts.elementAt(0), parts.elementAt(1));
 
   }

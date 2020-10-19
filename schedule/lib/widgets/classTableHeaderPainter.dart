@@ -17,10 +17,11 @@ class ClassTableHeaderPainter extends CustomPainter {
   /// property. the days in a week.
   int get daysCount => timeTableModel.daysCount;
   /// calculating property. the start date of the week at this index.
-  DateTime get dateStart {
-    return timeTable.startDate.toStartWeekOfDay(DateTime.monday)
-      .add(Duration(days: 7 * index));
-  }
+  DateTime get dateStart => timeTableModel.termGroup.weekStartOfIndex(index);
+  // DateTime get dateStart {
+  //   return timeTable.startDate.toStartWeekOfDay(DateTime.monday)
+  //     .add(Duration(days: 7 * index));
+  // }
 
   @override
   void paint(Canvas canvas, Size size) {

@@ -2,12 +2,13 @@ import 'dart:math';
 import 'package:schedule/models/index.dart';
 
 class TimeTable {
-  TimeTable(this.userId, this.startDate, this.lasting, this.title,
+  TimeTable(this.key, this.title,
       this.timeRows);
 
-  String userId; // references to User
-  DateTime startDate; // startDate
-  int lasting; // lasting week
+  // String userId; // references to User
+  // DateTime startDate; // startDate
+  // int lasting; // lasting week
+  String key; // key
   String title; // title
   Iterable<TimeRow> timeRows;
 

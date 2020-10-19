@@ -17,7 +17,7 @@ class _ClassTablePageState extends State<ClassTablePage> {
     return Container(
       child: Column(
         children: [
-          TitleBar("${timeTableModel.timeTable.title} 第 ${timeTableModel.index + 1} 周"), // 标题栏
+          TitleBar("${timeTableModel.term.title} 第 ${timeTableModel.currentIndex + 1} 周"), // 标题栏
           ClassTableElement() // 主体
         ],
       )

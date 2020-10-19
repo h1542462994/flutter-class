@@ -30,6 +30,7 @@ class ClassTableBodyBackgroundPainter extends CustomPainter {
     // draw horizontal lines.
     var accumulateHeight = 0.0;
     // print(accumulateHeight);
+    int groupIndex = 0;
     for(var groupCount in [timeTable.amCountMax, timeTable.pmCountMax, timeTable.eveningCountMax]){
       for(int i = 0; i < groupCount; ++i){
         accumulateHeight += Const.cellHeight;
@@ -38,11 +39,16 @@ class ClassTableBodyBackgroundPainter extends CustomPainter {
             Offset(size.width, accumulateHeight),
             MyPaints.graySquarePaint);
       }
-      accumulateHeight += Const.splitHeight;
-      canvas.drawLine(
-          Offset(0, accumulateHeight),
-          Offset(size.width, accumulateHeight),
-          MyPaints.graySquarePaint);
+      // groupIndex < 2 ensures not painting the last horizontal line.
+      // you could rewrite 2 to 3 to show the effect.
+      if(groupIndex < 2){
+        accumulateHeight += Const.splitHeight;
+        canvas.drawLine(
+            Offset(0, accumulateHeight),
+            Offset(size.width, accumulateHeight),
+            MyPaints.graySquarePaint);
+        ++groupIndex;
+      }
     }
 
     // draw first vertical line
