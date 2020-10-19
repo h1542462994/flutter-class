@@ -59,6 +59,10 @@ class _ClassTableElementState extends State<ClassTableElement> {
             CustomPaint(
                 painter: ClassTableBodyBackgroundPainter(timeTableModel), // table painter
                 size: Size(size.width, _measureHeight())
+            ),
+            CustomPaint(
+              painter: ClassTableBodyCellPainter(index, timeTableModel),
+              size: Size(size.width, _measureHeight())
             )
           ],
         ),

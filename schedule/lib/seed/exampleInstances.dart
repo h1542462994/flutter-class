@@ -6,7 +6,7 @@ class ExampleGenerator {
   static final String zjutNormal = "zjut.normal";
   static final String zjutExam = "zjut.exam";
   
-  //课表生成器1，用于测试学校的标准时刻表
+  /// 课表生成器1，用于测试学校的标准时刻表
   TimeTable generateTimeTableNormal() {
     return TimeTable(
         zjutNormal,
@@ -32,7 +32,7 @@ class ExampleGenerator {
     );
   }
 
-  //课表生成器2，用于生成考试的标准时刻表
+  /// 课表生成器2，用于生成考试的标准时刻表
   TimeTable generateTimeTableExam() {
     return TimeTable(
       zjutExam,
@@ -49,7 +49,19 @@ class ExampleGenerator {
       ]
     );
   }
-  
+
+  /// 生成cht的测试课表样例
+  ClassTable generateChtClassTable(){
+    return ClassTable(
+      [
+        ClassCell(1, 1, 2, "1-16", "编译原理", "屏峰校区 仁和208", "产思贤"),
+        ClassCell(1, 3, 2, "1-16", "JavaEE技术", "屏峰校区 广A313", "韩姗姗"),
+        ClassCell(2, 5, 6, "2-16", "操作系统原理", "屏峰校区 广B209", "何玲娜")
+      ]
+    );
+  }
+
+  /// 生成样例termGroup，用于进行前期的假数据测试
   TermGroup generateTermGroup() {
     return TermGroup(
       "cht",
@@ -64,14 +76,14 @@ class ExampleGenerator {
           zjutNormal, 
           DateTimeExtension.fromDate(2020, 9, 28),
           16,
-          null),
+          generateChtClassTable()),
         Term(
           "2020#1E",
           "2020 上学期(考试)",
           zjutExam,
           DateTimeExtension.fromDate(2021, 1, 18),
           2,
-          null
+          ClassTable([])
         )
       ]
     );
