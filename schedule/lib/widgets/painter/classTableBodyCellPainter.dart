@@ -23,6 +23,7 @@ class ClassTableBodyCellPainter extends CustomPainter {
     //colorPalette = ColorPalette();
     // TODO: FIX, 函数太复杂了，有待提高函数的可阅读性。
     var cells = timeTableModel.getShownCellsFromPageIndex(pageIndex);
+    //print("classTableBodyCellPainter: paint ${cells.length} cell(s)");
     //var cells = this.timeTableModel.term.classTable.getShownCells(timeTableModel.pageIndex);
     for(var cell in cells){
       int row = cell.row;
@@ -44,7 +45,7 @@ class ClassTableBodyCellPainter extends CustomPainter {
     // print(cell);
     // print(range);
     double dx = Const.cornerWidth + (cell.row - 1) * cellWidth;
-    double dy = 50;
+    double dy = 50; // 50 will be replaced
     if(range.end <= timeTable.amCountMax){
       dy = (range.start - 1) * Const.cellHeight;
     } else if(range.end <= timeTable.amCountMax + timeTable.pmCountMax) {
@@ -55,24 +56,27 @@ class ClassTableBodyCellPainter extends CustomPainter {
 
     double height = (range.end - range.start + 1) * Const.cellHeight;
 
-    double squareMargin = 3;
+    double squareMargin = Const.cellMargin;
 
-    canvas.drawRect(
-        ui.Rect.fromLTWH(
+    canvas.drawRRect(
+        ui.RRect.fromRectAndRadius(
+          Rect.fromLTWH(
             dx + squareMargin,
             dy + squareMargin,
             cellWidth - 2 * squareMargin,
             height - 2 * squareMargin),
+        Radius.circular(Const.cellRadius)),
         MyPaints.colorSquarePaint(timeTableModel.colorPalette.generateBackground(cell.title))); // 根据title生成颜色，也就是说，同一个title对应的颜色是一致的。
 
-    double paragraphMarginHorizontal = 4;
+
+    double paragraphMarginHorizontal = Const.paragraphMarginHorizontal;
     double paragraphLeft = dx + paragraphMarginHorizontal;
     double paragraphWidth = cellWidth - 2 * paragraphMarginHorizontal;
 
     Color color = timeTableModel.colorPalette.generateForeground(cell.title);
-    ui.Paragraph paragraphTitle = MyPaints.buildParagraph(cell.title, paragraphWidth, fontSize: 10, bold: true, color: color);
-    ui.Paragraph paragraphDest = MyPaints.buildParagraph("@${cell.dest}", paragraphWidth, fontSize: 8, bold: false, color: color);
-    ui.Paragraph paragraphTeacher = MyPaints.buildParagraph(cell.teacher, paragraphWidth, fontSize: 8, bold: false, color: color);
+    ui.Paragraph paragraphTitle = MyPaints.buildParagraph(cell.title, paragraphWidth, fontSize: Const.fontSizeTitle, bold: true, color: color);
+    ui.Paragraph paragraphDest = MyPaints.buildParagraph("@${cell.dest}", paragraphWidth, fontSize: Const.fontSizeSmallText, bold: false, color: color);
+    ui.Paragraph paragraphTeacher = MyPaints.buildParagraph(cell.teacher, paragraphWidth, fontSize: Const.fontSizeSmallText, bold: false, color: color);
     double space = 1.0;
 
     // TODO: 解决高度溢出单元格的问题（动态调整cellHeight），将在1.1版本中解决 author:@cht

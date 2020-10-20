@@ -5,4 +5,9 @@ class Const {
   static final double cornerHeight = 40;
   static final double cellHeight = 60;
   static final double splitHeight = 25;
+  static final double cellRadius = 4;
+  static final double cellMargin = 3;
+  static final double paragraphMarginHorizontal = 4;
+  static final double fontSizeTitle = 10;
+  static final double fontSizeSmallText = 8;
 }

@@ -28,8 +28,13 @@ class TimeTableModel extends BaseChangeNotifier {
   ColorPalette get colorPalette => _colorPalette;
 
   set pageIndex (int value) {
+    int old = _pageIndex;
+    bool notify = value != _pageIndex;
     _pageIndex = value;
-    notifyListeners();
+    if(notify){
+      print("timeTableModel: page index from :$old changed to :$value");
+      notifyListeners();
+    }
   }
 
   Iterable<ClassCell> getShownCellsFromPageIndex(int pageIndex){
