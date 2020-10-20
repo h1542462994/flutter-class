@@ -5,6 +5,8 @@ class ClassTable {
   List<ClassCell> cells;
 
   Iterable<ClassCell> getShownCells(int index){
-    return cells.takeWhile((value) => value.shown(index));
+    //print(index);
+    // TODO: FIX, 已经解决了缺少个别项的问题。
+    return cells.where((value) => value.shown(index));
   }
 }

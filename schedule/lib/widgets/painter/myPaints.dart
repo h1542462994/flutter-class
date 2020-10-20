@@ -16,7 +16,7 @@ class MyPaints {
   static Paint get graySquarePaint => colorSquarePaint(Colors.black12);
   static Paint get lightRoseSquarePaint => colorSquarePaint(Color.fromARGB(255, 250, 245, 240));
 
-  static ui.Paragraph buildParagraph(String text, double width, {double fontSize = 10, bool bold = false, bool blue = false}){
+  static ui.Paragraph buildParagraph(String text, double width, {double fontSize = 10, bool bold = false, Color color = Colors.black54}){
     ui.ParagraphBuilder paragraphBuilder = ui.ParagraphBuilder(
         ui.ParagraphStyle(
           textAlign: TextAlign.center,
@@ -25,7 +25,7 @@ class MyPaints {
           fontSize: fontSize,
         )
     );
-    paragraphBuilder.pushStyle(ui.TextStyle(color: blue ? Colors.blue : Colors.black54));
+    paragraphBuilder.pushStyle(ui.TextStyle(color: color));
     paragraphBuilder.addText(text);
     ui.ParagraphConstraints paragraphConstraints = ui.ParagraphConstraints(width: width);
     return paragraphBuilder.build()..layout(paragraphConstraints);

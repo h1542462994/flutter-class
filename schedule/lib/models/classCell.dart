@@ -19,6 +19,7 @@ class ClassCell {
   /// to justify whether the cell is shown by index.
   bool shown(int index){
     Ranges ranges = Ranges.s(weeks);
+    //print(ranges);
     return ranges.contains(index + 1);
   }
 
@@ -26,7 +27,6 @@ class ClassCell {
 
   @override
   String toString() {
-    // TODO: implement toString
     return "row:${this.row},column:${this.column},length:${this.length},weeks:${this.weeks},title:${this.title},dest:${this.dest},teacher:${this.teacher}";
   }
 }

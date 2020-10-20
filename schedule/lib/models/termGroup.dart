@@ -15,14 +15,14 @@ class TermGroup {
   List<Term> terms = [];
 
   /// get the term from the index. the index means pageIndex shown in the pageViewer
-  Term getTermFromIndex(int index) {
-    if(index < 0 || index >= weekCount) {
-      throw IndexError(index, terms);
+  Term getTermFromPageIndex(int pageIndex) {
+    if(pageIndex < 0 || pageIndex >= weekCount) {
+      throw IndexError(pageIndex, terms);
     }
     int accumulateIndex = 0;
     for(var term in terms){
       accumulateIndex += term.lasting;
-      if(index < accumulateIndex){
+      if(pageIndex < accumulateIndex){
         return term;
       }
     }
@@ -55,9 +55,9 @@ class TermGroup {
   // get the total weekCount
   int get weekCount => terms.map((e) => e.lasting).reduce((value, element) => value + element);
 
-  int currentIndexOfPageIndex(int index) {
-    if(index < 0 || index >= weekCount) {
-      throw IndexError(index, terms);
+  int currentIndexOfPageIndex(int pageIndex) {
+    if(pageIndex < 0 || pageIndex >= weekCount) {
+      throw IndexError(pageIndex, terms);
     }
     int accumulateIndex0 = 0; // the last record of accumulateIndex.
     int accumulateIndex = 0; // the current record of accumulateIndex.
@@ -65,8 +65,8 @@ class TermGroup {
       accumulateIndex0 = accumulateIndex;
       accumulateIndex += term.lasting;
 
-      if(index < accumulateIndex){
-        return index - accumulateIndex0;
+      if(pageIndex < accumulateIndex){
+        return pageIndex - accumulateIndex0;
       }
     }
     return -1;

@@ -40,6 +40,7 @@ class Range{
   }
 
   bool contains(int value){
+    //print("${this.start},$value,${this.end}");
     return this.start <= value && this.end >= value;
   }
 }

@@ -15,7 +15,9 @@ class Ranges {
   List<Range> ranges;
 
   bool contains(int value){
-    return ranges.where((element) => !element.contains(value)).isEmpty;
+    // print(value);
+    // print(ranges);
+    return ranges.where((element) => element.contains(value)).isNotEmpty;
   }
 
   Ranges split(int value) {

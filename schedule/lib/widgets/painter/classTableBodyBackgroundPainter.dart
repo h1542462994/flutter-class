@@ -8,10 +8,12 @@ import 'package:schedule/widgets/index.dart';
 
 // 绘制课表主体的背景
 class ClassTableBodyBackgroundPainter extends CustomPainter {
-  ClassTableBodyBackgroundPainter(this.timeTableModel);
+  ClassTableBodyBackgroundPainter(this.pageIndex, this.timeTableModel);
 
   final TimeTableModel timeTableModel;
-  TimeTable get timeTable => timeTableModel.timeTable;
+  final int pageIndex;
+  // TODO: 修复timeTable的不一致性。
+  TimeTable get timeTable => timeTableModel.getTimeTableFromPageIndex(pageIndex);
 
   @override
   void paint(Canvas canvas, Size size) {

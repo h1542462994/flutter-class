@@ -11,13 +11,17 @@ class ClassTablePage extends StatefulWidget {
 }
 
 class _ClassTablePageState extends State<ClassTablePage> {
+
+
   @override
   Widget build(BuildContext context) {
     TimeTableModel timeTableModel = Provider.of<TimeTableModel>(context);
+    var term = timeTableModel.getTermFromPageIndex(timeTableModel.pageIndex);
+    var currentIndex = timeTableModel.getCurrentIndexFromPageIndex(timeTableModel.pageIndex);
     return Container(
       child: Column(
         children: [
-          TitleBar("${timeTableModel.term.title} 第 ${timeTableModel.currentIndex + 1} 周"), // 标题栏
+          TitleBar("${term.title} 第 ${currentIndex + 1} 周"), // 标题栏
           ClassTableElement() // 主体
         ],
       )
