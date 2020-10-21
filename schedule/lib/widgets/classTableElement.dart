@@ -43,9 +43,11 @@ class _ClassTableElementState extends State<ClassTableElement> {
 
   // 构建标题栏
   Widget _buildHeader(int pageIndex){
-    return CustomPaint(
-      painter: ClassTableHeaderPainter(pageIndex, timeTableModel), // header painter
-      size: Size(size.width, Const.cornerHeight)
+    return RepaintBoundary(
+      child: CustomPaint(
+          painter: ClassTableHeaderPainter(pageIndex, timeTableModel), // header painter
+          size: Size(size.width, Const.cornerHeight)
+      ),
     );
   }
 
@@ -56,13 +58,17 @@ class _ClassTableElementState extends State<ClassTableElement> {
         scrollDirection: Axis.vertical,
         child: Stack(
           children: [
-            CustomPaint(
-                painter: ClassTableBodyBackgroundPainter(pageIndex, timeTableModel), // table painter
-                size: Size(size.width, timeTableModel.getTableHeightFromPageIndex(pageIndex))
-            ),
-            CustomPaint(
-              painter: ClassTableBodyCellPainter(pageIndex, timeTableModel),
-              size: Size(size.width, timeTableModel.getTableHeightFromPageIndex(pageIndex))
+            RepaintBoundary(
+              child: CustomPaint(
+                  painter: ClassTableBodyBackgroundPainter(pageIndex, timeTableModel), // table painter
+                  size: Size(size.width, timeTableModel.getTableHeightFromPageIndex(pageIndex))
+              ),
+            ) ,
+            RepaintBoundary(
+              child: CustomPaint(
+                  painter: ClassTableBodyCellPainter(pageIndex, timeTableModel),
+                  size: Size(size.width, timeTableModel.getTableHeightFromPageIndex(pageIndex))
+              ),
             )
           ],
         ),

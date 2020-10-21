@@ -17,6 +17,7 @@ class ClassTableBodyBackgroundPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    print("classTableBodyBackgroundPainter: paint");
     _paintLines(canvas, size);
     _paintLeftTexts(canvas, size);
     _paintCenterDecoration(canvas, size);

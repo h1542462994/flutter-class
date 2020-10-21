@@ -19,6 +19,7 @@ class ClassTableBodyCellPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    print("classTableBodyCellPainter: paint");
     cellWidth = (size.width - Const.cornerWidth) / timeTableModel.daysCount;
     //colorPalette = ColorPalette();
     // TODO: FIX, 函数太复杂了，有待提高函数的可阅读性。
