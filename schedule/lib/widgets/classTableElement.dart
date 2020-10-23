@@ -35,7 +35,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
             },
             childCount: timeTableModel.termGroup.weekCount // to expand our terms to the pageViewer
           ),
-        onPageChanged: _onPageViewPageChanged,
+        onPageChanged: _onPageViewPageIndexChanged,
         controller: PageController(initialPage: timeTableModel.pageIndex), // initialize the controller to make sure the state truly.
       )
     );
@@ -81,7 +81,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
   //   return Const.cellHeight * timeTable.countMax + 2 * Const.splitHeight;
   // }
 
-  void _onPageViewPageChanged(int value) {
+  void _onPageViewPageIndexChanged(int value) {
     timeTableModel.pageIndex = value;
   }
 }
