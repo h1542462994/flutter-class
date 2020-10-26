@@ -1,6 +1,6 @@
 import 'package:schedule/common/index.dart';
 
-/// a range \start,end\
+/// a range [start] to [end]
 class Range{
   int start;
   int end;

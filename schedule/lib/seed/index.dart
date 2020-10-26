@@ -1,1 +1,1 @@
-export 'exampleInstances.dart';
+export 'exampleGenerator.dart';
