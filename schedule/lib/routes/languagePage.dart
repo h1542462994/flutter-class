@@ -30,7 +30,7 @@ class LanguagePage extends StatelessWidget {
       body:  Container(
         child: Column(
           children: [
-          TitleBar("语言"),
+          TitleBar(gm.language),
           _buildLanguageItem(Const.chineseSimplified, "zh_CN"),
           _buildLanguageItem(Const.english, "en_US"),
           _buildLanguageItem(Const.japanese, "ja_JP"),

@@ -14,6 +14,14 @@ class UserModel extends BaseChangeNotifier {
     profile.currentIndex = currentIndex;
   }
 
+  bool get noUser {
+    if(userCount == null || userCount == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   void notify() {
     notifyListeners();
   }

@@ -30,6 +30,8 @@ class GmLocalizations{
     }
     if(locale.languageCode == 'en') {
       return Const.english;
+    } else if(locale.languageCode == 'ja') {
+      return Const.japanese;
     } else {
       return Const.chineseSimplified;
     }
@@ -50,6 +52,16 @@ class GmLocalizations{
   String get currentLocale => localeName(locale);
   String get lunch => _resources.get("lunch", index);
   String get dinner => _resources.get("dinner", index);
+  String get noLogin => _resources.get("noLogin", index);
+  String get clickToLogin => _resources.get("clickToLogin", index);
+  String get login => _resources.get("login", index);
+  String get uid => _resources.get("uid", index);
+  String get password => _resources.get("password", index);
+  String get uidEmpty => _resources.get("uidEmpty", index);
+  String get uidRange => _resources.get("uidRange", index);
+  String get uidReg => _resources.get("uidReg", index);
+  String get passwordEmpty => _resources.get("passwordEmpty", index);
+  String get passwordRange => _resources.get("passwordRange", index);
 }
 
 /// 国际化代理类
