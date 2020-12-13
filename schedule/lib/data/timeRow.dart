@@ -1,4 +1,4 @@
-import 'package:schedule/models/index.dart';
+import 'package:schedule/data/index.dart';
 
 class TimeRow {
   int rowStart; // begin of dayOfWeek, 1 means Monday, 7 means Sunday, etc

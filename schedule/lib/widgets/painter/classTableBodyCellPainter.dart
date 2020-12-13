@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/widgets.dart';
 import 'package:schedule/common/index.dart';
-import 'package:schedule/models/index.dart';
+import 'package:schedule/data/index.dart';
 import 'package:schedule/notifier/index.dart';
 import 'package:schedule/widgets/index.dart';
 

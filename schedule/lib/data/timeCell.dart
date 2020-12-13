@@ -1,5 +1,5 @@
 import 'package:schedule/common/dateTimeExtension.dart';
-import 'package:schedule/models/index.dart';
+import 'package:schedule/data/index.dart';
 
 class TimeCell {
   TimeType timeType; // timeType, 0 means a.m, 1 means p.m, 2 mean evening

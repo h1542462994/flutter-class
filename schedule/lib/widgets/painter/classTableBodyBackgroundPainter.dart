@@ -2,16 +2,18 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:schedule/common/index.dart';
-import 'package:schedule/models/index.dart';
+import 'package:schedule/data/index.dart';
+import 'package:schedule/l18n/index.dart';
 import 'package:schedule/notifier/index.dart';
 import 'package:schedule/widgets/index.dart';
 
 // 绘制课表主体的背景
 class ClassTableBodyBackgroundPainter extends CustomPainter {
-  ClassTableBodyBackgroundPainter(this.pageIndex, this.timeTableModel);
+  ClassTableBodyBackgroundPainter(this.pageIndex, this.timeTableModel, this.gm);
 
   final TimeTableModel timeTableModel;
   final int pageIndex;
+  final GmLocalizations gm;
   // TODO: 修复timeTable的不一致性。
   TimeTable get timeTable => timeTableModel.getTimeTableFromPageIndex(pageIndex);
 
@@ -135,8 +137,8 @@ class ClassTableBodyBackgroundPainter extends CustomPainter {
       (timeTable.amCountMax + timeTable.pmCountMax) * Const.cellHeight + Const.splitHeight
     ]; //calculate the top of two elements.
     var _texts = [
-      "午餐",
-      "晚餐"
+      gm.lunch,
+      gm.dinner
     ];
     for(var index in [0, 1]){
       canvas.drawRect(

@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:schedule/common/dateTimeExtension.dart';
-import 'package:schedule/models/index.dart';
+import 'package:schedule/data/index.dart';
+import 'package:schedule/models/profile.dart';
 
 /// 测试用例生成器，用于前期开发
 class ExampleGenerator {
@@ -96,5 +98,31 @@ class ExampleGenerator {
         )
       ]
     );
+  }
+
+  Profile defaultProfile() {
+    var profile = Profile();
+    profile.userCount = 0;
+    profile.currentIndex = 0;
+    profile.locale = "zh_CN";
+    profile.users = List();
+    return profile;
+  }
+
+  Profile initializeProfile(Profile profile) {
+    if (profile == null) {
+      return defaultProfile();
+    } else {
+      if (profile.userCount == null){
+        profile.userCount = 0;
+      }
+      if (profile.currentIndex == null) {
+        profile.currentIndex = 0;
+      }
+      if (profile.users == null) {
+        profile.users = List();
+      }
+      return profile;
+    }
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:schedule/models/index.dart';
 import 'package:schedule/common/index.dart';
+import 'package:schedule/data/index.dart';
 
 class TermGroup {
   TermGroup(this.userId, List<TimeTable> timeTables, this.terms){

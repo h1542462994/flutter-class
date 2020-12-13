@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:schedule/models/index.dart';
+import 'package:schedule/data/index.dart';
 
 class TimeTable {
   TimeTable(this.key, this.title,

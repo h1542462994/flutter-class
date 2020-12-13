@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:schedule/common/index.dart';
+import 'package:schedule/l18n/gmLocalizations.dart';
 import 'package:schedule/models/index.dart';
 import 'package:schedule/notifier/index.dart';
 import 'package:schedule/widgets/index.dart';
@@ -15,12 +16,14 @@ class _ClassTableElementState extends State<ClassTableElement> {
 
   //int dayCount = 7;
   TimeTableModel timeTableModel;
+  GmLocalizations gmLocalizations;
   //TimeTable get timeTable => timeTableModel.timeTable;
   Size size;
 
   @override
   Widget build(BuildContext context) {
     timeTableModel = Provider.of<TimeTableModel>(context);
+    gmLocalizations = GmLocalizations.of(context);
     size = MediaQuery.of(context).size;
     return Expanded(
       child: PageView.custom( // PageView to show the all week of classTable
@@ -45,7 +48,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
   Widget _buildHeader(int pageIndex){
     return RepaintBoundary(
       child: CustomPaint(
-          painter: ClassTableHeaderPainter(pageIndex, timeTableModel), // header painter
+          painter: ClassTableHeaderPainter(pageIndex, timeTableModel, gmLocalizations), // header painter
           size: Size(size.width, Const.cornerHeight)
       ),
     );
@@ -60,7 +63,7 @@ class _ClassTableElementState extends State<ClassTableElement> {
           children: [
             RepaintBoundary(
               child: CustomPaint(
-                  painter: ClassTableBodyBackgroundPainter(pageIndex, timeTableModel), // table painter
+                  painter: ClassTableBodyBackgroundPainter(pageIndex, timeTableModel, gmLocalizations), // table painter
                   size: Size(size.width, timeTableModel.getTableHeightFromPageIndex(pageIndex))
               ),
             ) ,

@@ -2,16 +2,18 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:schedule/common/index.dart';
-import 'package:schedule/models/index.dart';
+import 'package:schedule/data/index.dart';
+import 'package:schedule/l18n/gmLocalizations.dart';
 import 'package:schedule/notifier/index.dart';
 import 'package:schedule/widgets/index.dart';
 
 // 绘制课表的标题
 class ClassTableHeaderPainter extends CustomPainter {
-  ClassTableHeaderPainter(this.pageIndex, this.timeTableModel);
+  ClassTableHeaderPainter(this.pageIndex, this.timeTableModel, this.gm);
 
   final int pageIndex;
   final TimeTableModel timeTableModel;
+  final GmLocalizations gm;
   /// property. the timeTable instance in model.
   TimeTable get timeTable => timeTableModel.getTimeTableFromPageIndex(pageIndex);
   /// property. the days in a week.
@@ -33,7 +35,7 @@ class ClassTableHeaderPainter extends CustomPainter {
       bool isCurrentWeekday = timeTableModel.currentDate.weekday == date.weekday;
       Color color = isToday ? Colors.blue : Colors.black54;
 
-      ui.Paragraph paragraph = MyPaints.buildParagraph("周${getWeekOfDayText(i)}", cellWidth, bold: isCurrentWeekday, color: color); // 构造一个Paragraph
+      ui.Paragraph paragraph = MyPaints.buildParagraph(gm.weekDayText(i), cellWidth, bold: isCurrentWeekday, color: color); // 构造一个Paragraph
       double offsetHeight = 8;
       double space = 2;
       double height = paragraph.height; // 周x的高度

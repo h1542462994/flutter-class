@@ -1,4 +1,4 @@
-import 'package:schedule/models/index.dart';
+import 'package:schedule/data/index.dart';
 
 class Term {
   final String key;
