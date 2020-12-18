@@ -7,7 +7,7 @@ import 'package:schedule/common/index.dart';
 import 'package:schedule/l18n/gmResources.dart';
 import 'package:schedule/notifier/index.dart';
 
-/// 国际化资源类，当前适配了中文
+/// globalization class
 class GmLocalizations{
   Locale locale;
   GmResources _resources = GmResources();
@@ -62,9 +62,10 @@ class GmLocalizations{
   String get uidReg => _resources.get("uidReg", index);
   String get passwordEmpty => _resources.get("passwordEmpty", index);
   String get passwordRange => _resources.get("passwordRange", index);
+  String get register => _resources.get("register", index);
 }
 
-/// 国际化代理类
+/// globalization delegate class
 class GmLocalizationsDelegate extends LocalizationsDelegate<GmLocalizations> {
   @override
   bool isSupported(Locale locale) => ['zh', 'ja', 'en'].contains(locale.languageCode);

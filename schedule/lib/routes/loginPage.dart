@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                                   onPressed: () {
                                     print("click login button");
                                     if(Form.of(context).validate()) {
-                                      Net(userModel).login(_uidController.text, _passwordController.text).then((value) => print(value));
+                                      Net().login(_uidController.text, _passwordController.text).then((value) => print(value));
                                     }
                                   },
                                 );
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Expanded(child: RaisedButton(
                               padding: EdgeInsets.all(16),
-                              child: Text("Register"),
+                              child: Text(gm.register),
                               color: Colors.white,
                               textColor: Colors.black87,
                               onPressed: () {

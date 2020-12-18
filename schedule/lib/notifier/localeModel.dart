@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:schedule/common/global.dart';
 
 class LocaleModel extends BaseChangeNotifier {
-  /// 获取Locale的配置
+  /// get the locale from the profile.
   Locale getLocale() {
     if(profile.locale == null) return null;
     var t = profile.locale.split("_");

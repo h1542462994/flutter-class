@@ -4,7 +4,7 @@ import 'package:schedule/l18n/gmLocalizations.dart';
 import 'package:schedule/notifier/index.dart';
 import 'package:schedule/widgets/index.dart';
 
-// 课表页（对应于主页第2个菜单）
+// classTablePage View
 class ClassTablePage extends StatefulWidget {
   @override
   _ClassTablePageState createState() => _ClassTablePageState();

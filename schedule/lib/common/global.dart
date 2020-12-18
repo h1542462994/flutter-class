@@ -17,9 +17,9 @@ class Global {
     termGroup = exampleGenerator.generateTermGroup();
     color = Colors.blue;
 
-    /// 获取存储
+    /// get the sharedPreferences
     _prefs = await SharedPreferences.getInstance();
-    /// 加载存储信息
+    /// load the storage data
     // _prefs.clear();
     var _profile = _prefs.getString("profile");
     if  (_profile != null) {

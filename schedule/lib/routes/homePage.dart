@@ -4,7 +4,7 @@ import 'package:schedule/l18n/gmLocalizations.dart';
 import 'package:schedule/notifier/index.dart';
 import 'package:schedule/routes/index.dart';
 
-/// 应用主页
+/// homePage
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();

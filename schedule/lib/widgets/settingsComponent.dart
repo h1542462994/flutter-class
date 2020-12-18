@@ -19,7 +19,7 @@ class _SettingsComponentState extends State<SettingsComponent> {
         children: [
           SectionTitle(GmLocalizations.of(context).globalSettings),
           SimpleCard.simple(icon: Icons.language, content: gm.language, detail: gm.currentLocale, onTap: () {
-            print("点击了 语言");
+            print("click language button -> (Language Page)");
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return LanguagePage();
             }));

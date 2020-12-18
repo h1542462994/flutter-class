@@ -1,20 +1,16 @@
-import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
+import 'package:schedule/data/apiResponseT.dart';
 import 'package:schedule/models/index.dart';
 import 'package:schedule/notifier/index.dart';
 
-import 'index.dart';
 
 class Net {
-  Net(this.userModel){
-  }
-  UserModel userModel;
+  Net();
   static Dio dio = new Dio(
     BaseOptions(
-      baseUrl: "http://www.baidu.com",
+      // baseUrl: "http://nfcv.xyz:9001",
+      baseUrl: "http://192.168.137.1:9001"
     )
   );
 
@@ -22,12 +18,15 @@ class Net {
 
   }
 
-  Future<UserRecord> login(String uid, String password) async {
-    var response = await dio.post("/user/login",queryParameters: {
+  Future<ApiResponseT<UserRecord>> login(String uid, String password) async {
+    var response = await dio.post("/user/login", queryParameters: {
       "uid": uid,
       "password": password
     });
-    return UserRecord.fromJson(response.data);
+
+    var result = ApiResponse.fromJson(response.data);
+    //print(result.toJson());
+    return ApiResponseT<UserRecord>.part(result).apply(UserRecord.fromJson(result.data));
   }
 
 }

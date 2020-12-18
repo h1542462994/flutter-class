@@ -1,7 +1,6 @@
-
-
 import 'dart:ui';
 
+// globalization resource class
 class GmResources {
   int _defaultIndex = 1;
 
@@ -27,6 +26,7 @@ class GmResources {
     "uidReg": ["用户名仅包含数字，大小写字母，下划线", "username contains [dlL_]"],
     "passwordEmpty": ["密码不能为空", "password is empty"],
     "passwordRange": ["密码应在6-128位之间", "password length in [6-128]"],
+    "register": ["注册", "Register"]
   };
   Map<int, List<String>> weekResources = {
     0: ["周一", "Mon.", "月曜日"],

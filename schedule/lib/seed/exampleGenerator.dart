@@ -100,29 +100,21 @@ class ExampleGenerator {
     );
   }
 
-  Profile defaultProfile() {
-    var profile = Profile();
-    profile.userCount = 0;
-    profile.currentIndex = 0;
-    profile.locale = "zh_CN";
-    profile.users = List();
-    return profile;
-  }
 
   Profile initializeProfile(Profile profile) {
     if (profile == null) {
-      return defaultProfile();
-    } else {
-      if (profile.userCount == null){
-        profile.userCount = 0;
-      }
-      if (profile.currentIndex == null) {
-        profile.currentIndex = 0;
-      }
-      if (profile.users == null) {
-        profile.users = List();
-      }
-      return profile;
+      profile = Profile();
     }
+
+    if (profile.userCount == null){
+      profile.userCount = 0;
+    }
+    if (profile.currentIndex == null) {
+      profile.currentIndex = 0;
+    }
+    if (profile.users == null) {
+      profile.users = List();
+    }
+    return profile;
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:schedule/common/index.dart';
 import 'package:schedule/data/index.dart';
 
@@ -33,6 +32,7 @@ class TermGroup {
     return timeTables[term.timeTableKey];
   }
 
+  //TODO: return value should be ensured.
   DateTime weekStartOfIndex(int index) {
     if(index < 0 || index >= weekCount) {
       throw IndexError(index, terms);
