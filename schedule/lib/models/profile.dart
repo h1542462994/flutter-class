@@ -10,6 +10,8 @@ class Profile {
     num currentIndex;
     List<UserRecord> users;
     String locale;
+    bool developOpen;
+    String server;
     
     factory Profile.fromJson(Map<String,dynamic> json) => _$ProfileFromJson(json);
     Map<String, dynamic> toJson() => _$ProfileToJson(this);

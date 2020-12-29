@@ -8,3 +8,4 @@ export 'timeTable.dart';
 export 'timeType.dart';
 export 'apiResponse.dart';
 export 'apiResponseT.dart';
+export 'componentState.dart';

@@ -19,6 +19,8 @@ class GmLocalizations{
     }
   }
 
+
+
   static GmLocalizations of(BuildContext context){
     return Localizations.of<GmLocalizations>(context, GmLocalizations);
   }
@@ -63,6 +65,10 @@ class GmLocalizations{
   String get passwordEmpty => _resources.get("passwordEmpty", index);
   String get passwordRange => _resources.get("passwordRange", index);
   String get register => _resources.get("register", index);
+  String get developSettings => _resources.get("developSettings", index);
+  String get serverDest => _resources.get("serverDest", index);
+  String get on => _resources.get("on", index);
+  String get off => _resources.get("off", index);
 }
 
 /// globalization delegate class

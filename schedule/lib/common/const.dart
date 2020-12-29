@@ -13,4 +13,5 @@ class Const {
   static final String chineseSimplified = "简体中文";
   static final String english = "English";
   static final String japanese = "日本語";
+  static final String defaultServer = "192.168.1.1";
 }

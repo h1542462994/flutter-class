@@ -14,12 +14,16 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : UserRecord.fromJson(e as Map<String, dynamic>))
         ?.toList()
-    ..locale = json['locale'] as String;
+    ..locale = json['locale'] as String
+    ..developOpen = json['developOpen'] as bool
+    ..server = json['server'] as String;
 }
 
 Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
       'userCount': instance.userCount,
       'currentIndex': instance.currentIndex,
       'users': instance.users,
-      'locale': instance.locale
+      'locale': instance.locale,
+      'developOpen': instance.developOpen,
+      'server': instance.server
     };

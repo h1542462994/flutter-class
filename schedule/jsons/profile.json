@@ -2,5 +2,7 @@
   "userCount": 0,
   "currentIndex": 0,
   "users": "$[]userRecord",
-  "locale": ""
+  "locale": "",
+  "developOpen": false,
+  "server": "localhost:9090"
 }

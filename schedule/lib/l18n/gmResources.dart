@@ -26,7 +26,11 @@ class GmResources {
     "uidReg": ["用户名仅包含数字，大小写字母，下划线", "username contains [dlL_]"],
     "passwordEmpty": ["密码不能为空", "password is empty"],
     "passwordRange": ["密码应在6-128位之间", "password length in [6-128]"],
-    "register": ["注册", "Register"]
+    "register": ["注册", "Register"],
+    "developSettings": ["开发者设置", "Develop Settings"],
+    "serverDest": ["服务地址", "Server Dest"],
+    "on": ["开启", "On"],
+    "off": ["关闭", "Off"]
   };
   Map<int, List<String>> weekResources = {
     0: ["周一", "Mon.", "月曜日"],

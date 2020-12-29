@@ -26,10 +26,18 @@ class Global {
       try {
         profile = Profile.fromJson(jsonDecode(_profile));
       } catch(e) {
+        profile = Profile();
         print(e);
       }
     }
-    profile = exampleGenerator.initializeProfile(profile);
+  }
+
+  static valueOrDefault(value, defaultValue){
+    if(value == null){
+      return defaultValue;
+    } else {
+      return value;
+    }
   }
 
   static saveProfile() {

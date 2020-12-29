@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:schedule/common/myColors.dart';
+import 'package:schedule/data/index.dart';
 
 class SimpleCard extends StatelessWidget {
   SimpleCard({this.icon, this.content, this.secondContent, this.rightIcon = Icons.keyboard_arrow_right, this.rightIconShown = true, this.onTap});
@@ -54,6 +55,22 @@ class SimpleCard extends StatelessWidget {
         ),
       rightIconShown: rightIconShown,
       onTap: onTap,
+    );
+  }
+
+  static SimpleCard withSwitch({IconData icon, String content, bool state , Function onCheck}) {
+    return SimpleCard(
+      icon: icon,
+      content: Text(content,
+        textScaleFactor: 0.9),
+      secondContent: Switch(
+        value: state,
+        onChanged: (value) {
+          state = value;
+          onCheck(value);
+        },
+      ),
+      rightIconShown: false,
     );
   }
 }

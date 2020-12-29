@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:schedule/data/apiResponse.dart';
 
-
-@JsonSerializable()
 class ApiResponseT<T> {
   ApiResponseT();
 
