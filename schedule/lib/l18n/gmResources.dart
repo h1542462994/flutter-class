@@ -30,7 +30,9 @@ class GmResources {
     "developSettings": ["开发者设置", "Develop Settings"],
     "serverDest": ["服务地址", "Server Dest"],
     "on": ["开启", "On"],
-    "off": ["关闭", "Off"]
+    "off": ["关闭", "Off"],
+    "userStateOk": ["正常", "Normal"],
+    "userStateFail": ["自动登录异常", "Auto login Failed"]
   };
   Map<int, List<String>> weekResources = {
     0: ["周一", "Mon.", "月曜日"],

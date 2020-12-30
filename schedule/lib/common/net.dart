@@ -9,6 +9,8 @@ import 'package:schedule/models/index.dart';
 
 class Net {
   Net();
+  static int get ok => 200;
+
   static Dio dio = new Dio(
     BaseOptions(
       // baseUrl: "http://nfcv.xyz:9001",
@@ -17,7 +19,7 @@ class Net {
   );
 
   void init(){
-    var server = Global.profile.developOpen ? Global.valueOrDefault(Global.profile.server, Const.defaultServer) : Const.defaultServer;
+    var server = (Global.profile.developOpen != false) ? Global.valueOrDefault(Global.profile.server, Const.defaultServer) : Const.defaultServer;
     dio.options.baseUrl = "http://$server";
     log("current server address: ${dio.options.baseUrl}", level: 0);
   }

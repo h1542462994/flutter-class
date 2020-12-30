@@ -81,7 +81,12 @@ class _LoginPageState extends State<LoginPage> {
                                   onPressed: () {
                                     print("click login button");
                                     if(Form.of(context).validate()) {
-                                      Net().login(_uidController.text, _passwordController.text).then((value) => print(value));
+                                      userModel.login(_uidController.text, _passwordController.text).then((value) =>
+                                      {
+                                        if(userModel.loginState == true) {
+                                          Navigator.pop(context)
+                                        }
+                                      });
                                     }
                                   },
                                 );

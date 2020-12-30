@@ -1,7 +1,5 @@
 {
-  "userCount": 0,
-  "currentIndex": 0,
-  "users": "$[]userRecord",
+  "user": "$userRecord",
   "locale": "",
   "developOpen": false,
   "server": "localhost:9090"

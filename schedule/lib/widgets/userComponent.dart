@@ -27,6 +27,10 @@ class _UserComponentState extends State<UserComponent> {
           return LoginPage();
         }));
       }));
+    } else {
+      children.add(SimpleCard.simple(icon: Icons.person, content: userModel.user.user.name, detail: userModel.userState ? gm.userStateOk : gm.userStateFail , onTap: () {
+
+      }));
     }
     children.add(SectionTitle(gm.userSettings));
     Column column = Column(children: children,);

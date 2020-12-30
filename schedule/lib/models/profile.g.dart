@@ -8,21 +8,16 @@ part of 'profile.dart';
 
 Profile _$ProfileFromJson(Map<String, dynamic> json) {
   return Profile()
-    ..userCount = json['userCount'] as num
-    ..currentIndex = json['currentIndex'] as num
-    ..users = (json['users'] as List)
-        ?.map((e) =>
-            e == null ? null : UserRecord.fromJson(e as Map<String, dynamic>))
-        ?.toList()
+    ..user = json['user'] == null
+        ? null
+        : UserRecord.fromJson(json['user'] as Map<String, dynamic>)
     ..locale = json['locale'] as String
     ..developOpen = json['developOpen'] as bool
     ..server = json['server'] as String;
 }
 
 Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
-      'userCount': instance.userCount,
-      'currentIndex': instance.currentIndex,
-      'users': instance.users,
+      'user': instance.user,
       'locale': instance.locale,
       'developOpen': instance.developOpen,
       'server': instance.server

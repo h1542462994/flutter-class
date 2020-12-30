@@ -6,9 +6,7 @@ part 'profile.g.dart';
 class Profile {
     Profile();
 
-    num userCount;
-    num currentIndex;
-    List<UserRecord> users;
+    UserRecord user;
     String locale;
     bool developOpen;
     String server;
