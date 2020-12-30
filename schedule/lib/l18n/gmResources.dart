@@ -32,7 +32,8 @@ class GmResources {
     "on": ["开启", "On"],
     "off": ["关闭", "Off"],
     "userStateOk": ["正常", "Normal"],
-    "userStateFail": ["自动登录异常", "Auto login Failed"]
+    "userStateFail": ["自动登录异常", "Auto login Failed"],
+    "exitLogin": ["退出登录", "Exit Login"]
   };
   Map<int, List<String>> weekResources = {
     0: ["周一", "Mon.", "月曜日"],

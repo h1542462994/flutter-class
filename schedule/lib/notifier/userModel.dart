@@ -65,6 +65,11 @@ class UserModel extends BaseChangeNotifier {
     }
   }
 
+  void exitLogin() {
+    userState = false;
+    user = null;
+  }
+
   void notify() {
     notifyListeners();
   }

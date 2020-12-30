@@ -71,6 +71,7 @@ class GmLocalizations{
   String get off => _resources.get("off", index);
   String get userStateOk => _resources.get("userStateOk", index);
   String get userStateFail => _resources.get("userStateFail", index);
+  String get exitLogin => _resources.get("exitLogin", index);
 }
 
 /// globalization delegate class
